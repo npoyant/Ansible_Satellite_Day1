@@ -1,0 +1,13 @@
+---
+- name: add {{ item }} repo
+  yum_repository:
+    name: rhel_7_repo
+    description: {{ item }}
+    baseurl: file:///repo/{{ item }}/
+    gpgcheck: no
+    enabled: yes
+ with_items:
+   - rhel-7-server-extras-rpms
+   - rhel-server-rhscl-7-rpms
+   - rhel-7-server-satellite-6.3-rpms
+   - rhel-7-server-rpms
